@@ -112,3 +112,85 @@ body {
   margin-bottom: 1rem;
   break-inside: avoid;
 }
+
+/* Markdown 文章样式 */
+.markdown {
+  color: var(--foreground);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  font-weight: 700;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(120deg, #2563eb, #7c3aed, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.markdown h1 {
+  font-size: 2.1rem;
+}
+
+.markdown h2 {
+  font-size: 1.7rem;
+}
+
+.markdown h3 {
+  font-size: 1.4rem;
+}
+
+.markdown p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 0.5rem 0 0.75rem 1.5rem;
+}
+
+.markdown li {
+  margin: 0.15rem 0;
+}
+
+.markdown a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.markdown a:hover {
+  text-decoration: underline;
+}
+
+.markdown code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+.dark .markdown code {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.markdown pre {
+  background: #020617;
+  color: #e5e7eb;
+  padding: 1rem 1.2rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  border: 1px solid rgba(15, 23, 42, 0.8);
+  margin: 1rem 0;
+}
+
+.markdown pre code {
+  background: transparent;
+  padding: 0;
+}

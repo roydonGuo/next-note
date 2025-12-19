@@ -136,16 +136,7 @@ export default async function NotePage({ params }: { params: Promise<{ id: strin
               </div>
             </header>
 
-            <div className="prose prose-zinc dark:prose-invert max-w-none
-                            prose-h1:text-3xl md:prose-h1:text-4xl prose-h1:font-bold prose-h1:mt-8 prose-h1:mb-4
-                            prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:font-semibold prose-h2:mt-6 prose-h2:mb-3
-                            prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-4 prose-h3:mb-2
-                            prose-p:text-[15px] prose-p:leading-relaxed prose-p:mt-2 prose-p:mb-3
-                            prose-li:my-1
-                            prose-headings:bg-gradient-to-r prose-headings:from-blue-600 prose-headings:to-purple-600 prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:dark:from-blue-400 prose-headings:dark:to-purple-400
-                            prose-a:text-blue-600 prose-a:dark:text-blue-400 prose-a:no-underline hover:prose-a:underline
-                            prose-code:bg-zinc-100 prose-code:dark:bg-zinc-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
-                            prose-pre:bg-zinc-900 prose-pre:dark:bg-zinc-950 prose-pre:border prose-pre:border-zinc-800">
+            <div className="markdown max-w-none">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeHighlight]}

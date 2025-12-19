@@ -207,8 +207,8 @@ export default function HomeClient({ notes, categories, tags, showSearchOnly }: 
 
   return <HomeContent notes={notes} categories={categories} tags={tags} />;
 }
-
 function SearchBarWithContext() {
   const { searchQuery, setSearchQuery } = useFilters();
   return <SearchBar value={searchQuery} onChange={setSearchQuery} />;
 }
+

@@ -41,7 +41,7 @@ export default function MasonryGrid({ notes, loadMore, hasMore, loading }: Mason
 
   const breakpointColumnsObj = {
     default: 4,
-    1920: 5,
+    1920: 4,
     1536: 4,
     1280: 3,
     1024: 2,

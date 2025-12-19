@@ -48,63 +48,56 @@ export default async function NotePage({ params }: { params: Promise<{ id: strin
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
       </div>
 
-      <main className="relative max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="relative max-w-7xl xl:max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-6 lg:gap-10 items-start">
-          {/* 左侧操作栏 */}
+          {/* 左侧操作栏：返回 + 竖向操作按钮，透明背景 */}
           <aside className="lg:sticky lg:top-20 self-start">
-            <div className="flex flex-col justify-between gap-6 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-zinc-200/50 dark:border-zinc-800/50 rounded-2xl p-4 shadow-lg min-h-[260px]">
+            <div className="flex flex-col items-center gap-6">
               {/* 顶部返回按钮（圆形图标） */}
-              <div className="flex flex-col items-start">
-                <Link
-                  href="/"
-                  className="group inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-md hover:shadow-lg hover:scale-110 transition-all"
-                  aria-label="返回首页"
-                >
-                  <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                </Link>
-              </div>
+              <Link
+                href="/"
+                className="group inline-flex items-center justify-center w-11 h-11 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 text-white shadow-md hover:shadow-lg hover:scale-110 transition-all"
+                aria-label="返回首页"
+              >
+                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+              </Link>
 
-              {/* 底部操作按钮 */}
-              <div className="flex flex-col gap-3 pt-2 border-t border-zinc-200/60 dark:border-zinc-800/60">
-                <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                  操作
-                </span>
-                <div className="flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-zinc-800 text-pink-500 dark:text-pink-400 border border-pink-200/60 dark:border-pink-900/60 shadow-sm hover:bg-pink-50 dark:hover:bg-pink-900/30 hover:scale-105 transition-all"
-                    aria-label="点赞"
-                  >
-                    <Heart className="w-5 h-5" />
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-zinc-800 text-amber-500 dark:text-amber-400 border border-amber-200/60 dark:border-amber-900/60 shadow-sm hover:bg-amber-50 dark:hover:bg-amber-900/30 hover:scale-105 transition-all"
-                    aria-label="收藏"
-                  >
-                    <Bookmark className="w-5 h-5" />
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-zinc-800 text-blue-500 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/60 shadow-sm hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:scale-105 transition-all"
-                    aria-label="评论"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-zinc-800 text-emerald-500 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-900/60 shadow-sm hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:scale-105 transition-all"
-                    aria-label="分享"
-                  >
-                    <Share2 className="w-5 h-5" />
-                  </button>
-                </div>
+              {/* 竖向操作按钮，灰色底色 */}
+              <div className="flex flex-col items-center gap-3 mt-4">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full text-pink-500 dark:text-pink-300 bg-zinc-100/80 dark:bg-zinc-800/60 hover:bg-pink-500/15 dark:hover:bg-pink-400/20 hover:scale-105 transition-all border border-zinc-200/70 dark:border-zinc-700/70 shadow-sm"
+                  aria-label="点赞"
+                >
+                  <Heart className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full text-amber-500 dark:text-amber-300 bg-zinc-100/80 dark:bg-zinc-800/60 hover:bg-amber-500/15 dark:hover:bg-amber-400/20 hover:scale-105 transition-all border border-zinc-200/70 dark:border-zinc-700/70 shadow-sm"
+                  aria-label="收藏"
+                >
+                  <Bookmark className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full text-blue-500 dark:text-blue-300 bg-zinc-100/80 dark:bg-zinc-800/60 hover:bg-blue-500/15 dark:hover:bg-blue-400/20 hover:scale-105 transition-all border border-zinc-200/70 dark:border-zinc-700/70 shadow-sm"
+                  aria-label="评论"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full text-emerald-500 dark:text-emerald-300 bg-zinc-100/80 dark:bg-zinc-800/60 hover:bg-emerald-500/15 dark:hover:bg-emerald-400/20 hover:scale-105 transition-all border border-zinc-200/70 dark:border-zinc-700/70 shadow-sm"
+                  aria-label="分享"
+                >
+                  <Share2 className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </aside>
 
           {/* 右侧内容 */}
-          <article className="relative overflow-hidden bg-white/85 dark:bg-zinc-900/85 backdrop-blur-sm rounded-3xl shadow-2xl border border-zinc-200/50 dark:border-zinc-800/50 p-8 md:p-10">
+          <article className="relative overflow-hidden bg-white/85 dark:bg-zinc-900/85 backdrop-blur-sm rounded-2xl shadow-2xl border border-zinc-200/50 dark:border-zinc-800/50 p-8 md:p-10">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-400/10 to-purple-400/10 dark:from-blue-500/5 dark:to-purple-500/5 rounded-full blur-3xl"></div>
 
             <header className="relative mb-8 pb-6 border-b border-zinc-200/50 dark:border-zinc-700/50">
@@ -143,7 +136,16 @@ export default async function NotePage({ params }: { params: Promise<{ id: strin
               </div>
             </header>
 
-            <div className="prose prose-zinc dark:prose-invert max-w-none prose-headings:bg-gradient-to-r prose-headings:from-blue-600 prose-headings:to-purple-600 prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:dark:from-blue-400 prose-headings:dark:to-purple-400 prose-a:text-blue-600 prose-a:dark:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-code:bg-zinc-100 prose-code:dark:bg-zinc-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-pre:bg-zinc-900 prose-pre:dark:bg-zinc-950 prose-pre:border prose-pre:border-zinc-800">
+            <div className="prose prose-zinc dark:prose-invert max-w-none
+                            prose-h1:text-3xl md:prose-h1:text-4xl prose-h1:font-bold prose-h1:mt-8 prose-h1:mb-4
+                            prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:font-semibold prose-h2:mt-6 prose-h2:mb-3
+                            prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-4 prose-h3:mb-2
+                            prose-p:text-[15px] prose-p:leading-relaxed prose-p:mt-2 prose-p:mb-3
+                            prose-li:my-1
+                            prose-headings:bg-gradient-to-r prose-headings:from-blue-600 prose-headings:to-purple-600 prose-headings:bg-clip-text prose-headings:text-transparent prose-headings:dark:from-blue-400 prose-headings:dark:to-purple-400
+                            prose-a:text-blue-600 prose-a:dark:text-blue-400 prose-a:no-underline hover:prose-a:underline
+                            prose-code:bg-zinc-100 prose-code:dark:bg-zinc-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                            prose-pre:bg-zinc-900 prose-pre:dark:bg-zinc-950 prose-pre:border prose-pre:border-zinc-800">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeHighlight]}

@@ -1,8 +1,5 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
 import { getNoteById, getAllNotes } from '@/lib/notes';
 import {
   ArrowLeft,
@@ -14,7 +11,7 @@ import {
   MessageCircle,
   Share2,
 } from 'lucide-react';
-import 'highlight.js/styles/github-dark.css';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 
 export async function generateStaticParams() {
   const notes = await getAllNotes();
@@ -136,28 +133,7 @@ export default async function NotePage({ params }: { params: Promise<{ id: strin
               </div>
             </header>
 
-            <div className="markdown max-w-none">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeHighlight]}
-                components={{
-                  code({ node, className, children, ...props }: any) {
-                    const match = /language-(\w+)/.exec(className || '');
-                    return match ? (
-                      <code className={className} {...props}>
-                        {children}
-                      </code>
-                    ) : (
-                      <code className="bg-zinc-100 dark:bg-zinc-700 px-1.5 py-0.5 rounded text-sm" {...props}>
-                        {children}
-                      </code>
-                    );
-                  },
-                }}
-              >
-                {note.content}
-              </ReactMarkdown>
-            </div>
+            <MarkdownRenderer content={note.content} />
           </article>
         </div>
       </main>

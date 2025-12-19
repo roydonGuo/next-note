@@ -1,25 +1,34 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { FolderOpen, Tag as TagIcon } from 'lucide-react';
+import { useFilters } from './HomeProvider';
 
 interface CategorySidebarProps {
   categories: { name: string; count: number }[];
   tags: { name: string; count: number }[];
-  selectedCategory: string | null;
   totalNotes: number;
-  onCategorySelect: (category: string | null) => void;
 }
 
 export default function CategorySidebar({
   categories,
   tags,
-  selectedCategory,
   totalNotes,
-  onCategorySelect,
 }: CategorySidebarProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const { selectedCategory, setSelectedCategory } = useFilters();
+
+  const handleCategoryClick = (category: string | null) => {
+    setSelectedCategory(category);
+    if (pathname !== '/') {
+      router.push('/');
+    }
+  };
+
   return (
-    <aside className="lg:col-span-1 space-y-6">
+    <div className="space-y-6">
       {/* 分类 */}
       <div className="relative overflow-hidden bg-gradient-to-br from-white to-blue-50/50 dark:from-zinc-800 dark:to-blue-950/30 rounded-2xl shadow-lg border border-blue-100/50 dark:border-blue-900/50 p-6 backdrop-blur-sm">
         <div className="absolute top-0 right-0 w-24 h-24 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-2xl"></div>
@@ -34,7 +43,7 @@ export default function CategorySidebar({
           </div>
           <div className="space-y-2">
             <button
-              onClick={() => onCategorySelect(null)}
+              onClick={() => handleCategoryClick(null)}
               className={`w-full flex items-center justify-between p-3 rounded-xl transition-all ${
                 selectedCategory === null
                   ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg shadow-blue-500/30 scale-105'
@@ -53,7 +62,7 @@ export default function CategorySidebar({
             {categories.map((category) => (
               <button
                 key={category.name}
-                onClick={() => onCategorySelect(category.name)}
+                onClick={() => handleCategoryClick(category.name)}
                 className={`w-full flex items-center justify-between p-3 rounded-xl transition-all group ${
                   selectedCategory === category.name
                     ? 'bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg shadow-blue-500/30 scale-105'
@@ -103,7 +112,7 @@ export default function CategorySidebar({
           </div>
         </div>
       </div>
-    </aside>
+    </div>
   );
 }
 

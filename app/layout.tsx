@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description: "一个展示 Markdown 格式学习笔记的网站，支持分类和标签管理",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-CN">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
